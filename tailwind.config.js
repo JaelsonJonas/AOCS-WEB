@@ -9,7 +9,11 @@ module.exports = {
     colors: {
       'bg-blue': "#4B5CF5",
       'nav':"#FFFFFF66",
-      'title':'#151C59'
+      'title':'#151C59',
+      'background' : '#9FC2D5',
+      'blue': '#4B5CF5',
+      'h1color': '#FFFDFD',
+
     },
     extend: {
       backgroundImage: {

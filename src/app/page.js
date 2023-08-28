@@ -1,22 +1,25 @@
-import Link from "next/link"
 import NavBar from "./components/NavBar"
+import Tarefa from "./components/Tarefa"
 
-const Home = () => {
+const getTarefas = async () =>{
+  const url = "http://localhost:8080/api/tarefa"
+  const response  = await fetch(url)
+  return response.json()
+}
+
+const Home = async () => {
+  
+  const data = await getTarefas()
+
   return (
     <div>
-
       <NavBar />
-      <h1 className="text-3xl">Pagina inicial</h1>
-      <div>
-        <ul>
-          <li><Link href="/timer">Tarefa01</Link></li>
-          <li><Link href="/timer">Tarefa02</Link></li>
-          <li><Link href="/timer">Tarefa03</Link></li>
-        </ul>
+      <h1 className="text-3xl text-title flex justify-center my-10">Tarefas</h1>
+      <div className="my-4">
+      {data.map(conta =>{
+        return <Tarefa data={conta}/>
+      })}
       </div>
-
-
-
     </div >
   )
 }

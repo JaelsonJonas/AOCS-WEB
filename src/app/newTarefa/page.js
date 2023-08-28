@@ -2,16 +2,14 @@ import Link from "next/link"
 import NavBar from "../components/NavBar"
 
 const Tarefa = () => {
-  return (<>
+  return (
     <div>
 
-      <NavBar />
+      <NavBar page={"CriarTarefa"} />
 
-      <h1 className="text-3xl m-20"><Link href="/timer">Tarefa</Link></h1>
+      <h1 className="text-3xl m-20"><Link href="/timer">Criar Tarefa</Link></h1>
 
     </div >
-
-  </>
   )
 }
 export default Tarefa
