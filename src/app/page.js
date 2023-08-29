@@ -3,7 +3,7 @@ import Tarefa from "./components/Tarefa"
 
 const getTarefas = async () => {
   const url = "http://localhost:8080/api/tarefa"
-  const response = await fetch(url, { next: { revalidate: 3600 } })
+  const response = await fetch(url, { next: { revalidate: 0 } })
   return response.json()
 }
 
