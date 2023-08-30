@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'aocs'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_21FC582D241647529232DE5657CC1821 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_720E2E0ED39A43B9805AE6648807E9B8 }}
           package: .
