@@ -7,17 +7,17 @@ import TextInput from "../components/TextInput"
 import { ArrowLeftIcon } from "@heroicons/react/20/solid"
 import { CheckIcon } from "@heroicons/react/20/solid"
 import { useState } from "react"
-
-
+import { redirect } from 'next/navigation'
 const Tarefa = () => {
-  const [message, setMessage] = useState("asocimac")
+  const [message, setMessage] = useState("")
 
   const handleSubmit = async (formData) => {
     const response = await create(formData)
     if (response.error) {
       setMessage(response.error)
+      return
     }
-    setMessage(response.ok)
+    redirect("/")
   }
 
   return (
