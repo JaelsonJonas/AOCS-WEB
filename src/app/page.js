@@ -12,8 +12,6 @@ const Home = async () => {
 
   const data = await getTarefas()
 
-  console.log(data.content)
-
   return (
     <div>
       <NavBar />
