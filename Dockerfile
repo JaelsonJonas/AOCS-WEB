@@ -10,9 +10,6 @@ COPY . /app
 # Instale as dependências do projeto
 RUN npm install
 
-# Construa a aplicação Next.js
-RUN npm run build
-
 # Exponha a porta em que a aplicação Next.js será executada (pode ser a porta que você especificar em seu projeto)
 EXPOSE 3000
 
