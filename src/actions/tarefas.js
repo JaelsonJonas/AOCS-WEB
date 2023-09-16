@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache"
 
 const create = async (formData) => {
-    const url = "http://localhost:8080/api/tarefa"
+    const url = "http://aocs-production.up.railway.app/api/tarefa"
     const opt = {
         method: "POST",
         body: JSON.stringify(Object.fromEntries(formData)),
