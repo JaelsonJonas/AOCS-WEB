@@ -2,7 +2,7 @@ import NavBar from "./components/NavBar"
 import Tarefa from "./components/Tarefa"
 
 const getTarefas = async () => {
-  const url = "http://localhost:8080/api/tarefa"
+  const url = "https://aocs-production.up.railway.app/api/tarefa"
   const response = await fetch(url, { next: { revalidate: 1800 } })
   return response.json()
 }
