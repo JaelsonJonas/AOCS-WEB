@@ -1,11 +1,6 @@
+import { getTarefas } from "@/actions/tarefas"
 import NavBar from "./components/NavBar"
 import Tarefa from "./components/Tarefa"
-
-const getTarefas = async () => {
-  const url = "https://aocs-production.up.railway.app/api/tarefa"
-  const response = await fetch(url, { next: { revalidate: 1800 } })
-  return response.json()
-}
 
 
 const Home = async () => {

@@ -2,8 +2,9 @@
 
 import { revalidatePath } from "next/cache"
 
-const create = async (formData) => {
-    const url = "http://aocs-production.up.railway.app/api/tarefa"
+const url = process.env.NEXT_PUBLIC_BASE_URL + "/tarefa"
+
+export const create = async (formData) => {
     const opt = {
         method: "POST",
         body: JSON.stringify(Object.fromEntries(formData)),
@@ -15,7 +16,7 @@ const create = async (formData) => {
     if (response.status !== 201) {
         console.log(response.status)
         const json = await response.json();
-        const mensagens = json.reduce((str, erro) => str +=  erro.field + " - " + erro.message , "")
+        const mensagens = json?.reduce((str, erro) => str += ". " + erro.message, "")
         return { error: "Erro ao cadastrar" + mensagens }
     }
     console.log(response.status)
@@ -24,6 +25,10 @@ const create = async (formData) => {
     return { ok: "Tarefa Cadastrada com sucesso!!" }
 
 }
-export default create
+
+export const getTarefas = async () => {
+    const response = await fetch(url, { next: { revalidate: 1800 } })
+    return response.json()
+}
 
 
