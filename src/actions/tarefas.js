@@ -4,6 +4,11 @@ import { revalidatePath } from "next/cache"
 
 const url = process.env.NEXT_PUBLIC_BASE_URL + "/tarefa"
 
+export const getTarefas = async () => {
+    const response = await fetch(url, { next: { revalidate: 1800 } })
+    return response.json()
+}
+
 export const create = async (formData) => {
     const opt = {
         method: "POST",
@@ -26,9 +31,25 @@ export const create = async (formData) => {
 
 }
 
-export const getTarefas = async () => {
-    const response = await fetch(url, { next: { revalidate: 1800 } })
-    return response.json()
+
+
+
+export const deleteTarefa = async (id) => {
+    const deleteUrl = url + "/" + id
+
+    const response = await fetch(deleteUrl, {
+        method: "DELETE"
+    })
+
+    if (!response.ok) {
+        console.log(response.status)
+        const json = await response.json();
+        return { error: "Falha ao apagar a tarefa. " }
+
+    }
+    revalidatePath("/tarefa")
+
 }
+
 
 

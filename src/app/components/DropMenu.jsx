@@ -4,6 +4,7 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Link from 'next/link';
 
 export default function DropMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,9 +25,9 @@ export default function DropMenu() {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
             >
-            <div className="h-16 w-16 rounded-full overflow-hidden">
-                <img src="https://i.pravatar.cc/75" alt="Imagem do usuario" />
-            </div>
+                <div className="h-16 w-16 rounded-full overflow-hidden">
+                    <img src="https://i.pravatar.cc/75" alt="Imagem do usuario" />
+                </div>
             </Button>
             <Menu
                 id="basic-menu"
@@ -37,9 +38,9 @@ export default function DropMenu() {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <Link href="/tarefa"><MenuItem onClick={handleClose}>Tarefas</MenuItem></Link>
+                <MenuItem onClick={handleClose}>Conta</MenuItem>
+                <MenuItem onClick={handleClose}>Sair</MenuItem>
             </Menu>
         </div>
     );

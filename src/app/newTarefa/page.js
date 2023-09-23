@@ -18,7 +18,7 @@ const Tarefa = () => {
       setMessage(response.error)
       return
     }
-    redirect("/")
+    redirect("/tarefa")
   }
 
   return (

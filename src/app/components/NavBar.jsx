@@ -1,18 +1,14 @@
-
 "use client"
 
 import Link from "next/link"
 import { useState } from "react"
 import DropMenu from "./DropMenu"
+import Logo from "../../../public/Logo.svg"
 
 
 const NavBar = (page) => {
 
   const [nav, SetNav] = useState("Criar Tarefa")
-
-  const alteraNome = (nome) => {
-    { `${nome === "CriarTarefa" ? SetNav("Teste") : nav}` }
-  }
 
   return (<>
 
@@ -22,7 +18,7 @@ const NavBar = (page) => {
           <li><Link href="/"><img src="Logo.svg" alt="Logo da AOCS" className="h-16 w-16 rounded-full overflow-hidden" /></Link></li>
           <li><Link href="/newTarefa">Criar Tarefas</Link></li>
           <li>
-              <DropMenu />
+            <DropMenu />
           </li>
         </ul>
       </nav>
