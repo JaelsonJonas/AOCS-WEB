@@ -1,6 +1,5 @@
 "use client"
 
-
 import Button from "../components/Button"
 import NavBar from "../components/NavBar"
 import TextInput from "../components/TextInput"
@@ -9,15 +8,19 @@ import { CheckIcon } from "@heroicons/react/20/solid"
 import { useState } from "react"
 import { redirect } from 'next/navigation'
 import { create } from "@/actions/tarefas"
+import toast from "react-hot-toast"
+
+
 const Tarefa = () => {
-  const [message, setMessage] = useState("")
+
 
   const handleSubmit = async (formData) => {
     const response = await create(formData)
     if (response.error) {
-      setMessage(response.error)
+      toast.error(response.error)
       return
     }
+    toast.success(response.ok)
     redirect("/tarefa")
   }
 
@@ -39,7 +42,6 @@ const Tarefa = () => {
             <Button element="button" icon={<CheckIcon className="h-6 w-6" />}>Cadastrar</Button>
 
           </div>
-          <p>{message}</p>
         </form>
       </main>
 

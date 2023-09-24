@@ -20,12 +20,14 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { useRouter } from 'next/navigation';
-const router = useRouter()
+
 
 
 export default function DropTask({ tarefa }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+
+    const router = useRouter()
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -45,7 +47,7 @@ export default function DropTask({ tarefa }) {
     }
 
     const handleEdit = () => {
-        router.push("/tarefa/1/edit")
+        router.push("/tarefa/" + tarefa.id + "/edit")
 
     }
     return (

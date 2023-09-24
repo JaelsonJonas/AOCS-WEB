@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { useState } from "react"
 import DropMenu from "./DropMenu"
-import Logo from "../../../public/Logo.svg"
 
 
 const NavBar = (page) => {
