@@ -6,6 +6,7 @@ const url = process.env.NEXT_PUBLIC_BASE_URL + "/tarefa"
 
 
 export const getTarefas = async () => {
+    await new Promise(r => setTimeout(r, 5000))
     const response = await fetch(url, { next: { revalidate: 1800 } })
     return response.json()
 }
@@ -69,6 +70,7 @@ export const deleteTarefa = async (id) => {
 
     }
     revalidatePath("/tarefa")
+    return { ok: "Tarefa alterada com sucesso" }
 
 }
 

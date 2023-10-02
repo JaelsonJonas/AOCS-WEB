@@ -1,14 +1,12 @@
 "use client"
 
+import { create } from "@/actions/tarefas"
+import { ArrowLeftIcon, CheckIcon } from "@heroicons/react/20/solid"
+import { redirect } from 'next/navigation'
+import toast from "react-hot-toast"
 import Button from "../components/Button"
 import NavBar from "../components/NavBar"
 import TextInput from "../components/TextInput"
-import { ArrowLeftIcon } from "@heroicons/react/20/solid"
-import { CheckIcon } from "@heroicons/react/20/solid"
-import { useState } from "react"
-import { redirect } from 'next/navigation'
-import { create } from "@/actions/tarefas"
-import toast from "react-hot-toast"
 
 
 const Tarefa = () => {

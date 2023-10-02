@@ -4,7 +4,6 @@ import DropTask from "./DropTask"
 
 const Task = ({ data }) => {
     return (
-
         <main className="bg-white mx-[500px] mt-10 p-7 rounded-2xl max-w-lg m-auto">
             <div className="flex justify-between">
                 <div className="flex justify-start items-center mb-4">

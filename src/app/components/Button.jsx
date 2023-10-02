@@ -8,7 +8,7 @@ const Button = ({ children, icon, variante = "default", element, ...props }) => 
         vazadoVermelho: "flex items-center gap-2 py-1 px-4 rounded border border-red-700 hover:bg-red-50 text-red-700",
         vazadoVerde: "flex items-center gap-2 py-1 px-4 rounded border border-vida-loca-700 hover:bg-vida-loca-50 text-vida-loca-700",
         branco: "flex items-center gap-2 py-1 px-4 rounded border border-white2-700 hover:bg-white2-50 text-white2-700",
-
+        skeleton: "animate-pulse rounded-md bg-muted"
     }
     const variantClass = styles[variante]
 

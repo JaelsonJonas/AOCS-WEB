@@ -41,7 +41,7 @@ export default function DropTask({ tarefa }) {
         if (response?.error) {
             toast(response.error)
         } else {
-            toast.success("Tarefa apagada com sucesso!")
+            toast.success(response.ok)
         }
         setAnchorEl(null);
     }
