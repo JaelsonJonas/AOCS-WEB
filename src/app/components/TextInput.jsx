@@ -1,4 +1,4 @@
-const TextInput = ({ label, id, variante = "default", ...props }) => {
+const TextInput = ({ label, id, variante = "default", name, register = () => { }, ...props }) => {
 
     const styles = {
 
@@ -10,7 +10,7 @@ const TextInput = ({ label, id, variante = "default", ...props }) => {
     return (
         <div className="flex flex-col gap-1 my-2">
             <label htmlFor={id} className="font-semibold">{label}</label>
-            <input type="text" id={id} className={variantClass} {...props} />
+            <input {...register(name)} type="text" id={id} className={variantClass} {...props} />
         </div>
     )
 }
