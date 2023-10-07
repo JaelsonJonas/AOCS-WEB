@@ -1,16 +1,16 @@
-import { getTarefas } from "@/actions/tarefas"
-import NavBar from "./components/NavBar"
-import Tarefa from "./components/Tarefa"
 
+'use client'
+import { useRouter } from "next/navigation"
 
-const Home = () => {
+const App = () => {
+
+  const { push } = useRouter()
 
 
   return (
     <div>
-      <NavBar />
-      <h1 className="text-3xl text-title flex justify-center my-10">Home</h1>
+      {push("/home")}
     </div >
   )
 }
-export default Home
+export default App

@@ -5,6 +5,8 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
+import { useContext } from 'react';
+import { AuthContext } from '@/context/AuthContext';
 
 export default function DropMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -15,6 +17,7 @@ export default function DropMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const { user, logout } = useContext(AuthContext)
 
     return (
         <div>
@@ -40,7 +43,8 @@ export default function DropMenu() {
             >
                 <Link href="/tarefa"><MenuItem onClick={handleClose}>Tarefas</MenuItem></Link>
                 <MenuItem onClick={handleClose}>Conta</MenuItem>
-                <MenuItem onClick={handleClose}>Sair</MenuItem>
+                <MenuItem onClick={handleClose}>{user?.nome} : Editar Perfil</MenuItem>
+                <MenuItem onClick={logout}>Sair</MenuItem>
             </Menu>
         </div>
     );

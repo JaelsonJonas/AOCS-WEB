@@ -60,9 +60,8 @@ const MyForm = () => {
         console.log(JSON.stringify(json));
     };
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+    const handleInputChange = (field, value) => {
+        setFormData({ ...formData, [field]: value });
     };
 
     return (

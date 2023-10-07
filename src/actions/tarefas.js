@@ -1,14 +1,25 @@
 "use server"
 
 import { revalidatePath } from "next/cache"
+import { cookies } from "next/headers"
 
 const url = process.env.NEXT_PUBLIC_BASE_URL + "/tarefa"
 
+const apiKey = process.env.NEXT_PUBLIC_TOKEN_KEY
+const token = cookies().get(apiKey)
 
 export const getTarefas = async () => {
-    await new Promise(r => setTimeout(r, 5000))
-    const response = await fetch(url, { next: { revalidate: 1800 } })
-    return response.json()
+
+    const auth = {
+        headers: {
+            "Authorization": `Bearer ${token.value}`
+        }
+    }
+    const response = await fetch(url, auth, { next: { revalidate: 1800 } })
+
+    if (response.status !== 200) throw new Error("não foi possivel carregar os dados das tarefas")
+
+    return await response.json()
 }
 
 export const create = async (formData) => {
